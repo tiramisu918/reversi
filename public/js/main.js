@@ -23,7 +23,7 @@ $('#messages').append('<h4>'+username+'</h4>');
 
 var socket = io.connect();
 
-socket.on('log', fuction(array) {
-	console.log.apply(concole,array);
+socket.on('log', function(array) {
+	console.log.apply(console,array);
 	
 });

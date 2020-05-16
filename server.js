@@ -27,7 +27,7 @@ function(request,response){
 		).listen(port);
 console.log('The Server is running');
 
-/*  Set up the web sockeet server */
+/*  Set up the web socket server */
 
 var io = require ('socket.io').listen(app);
 io.sockets.on('connection', function(socket){
@@ -40,8 +40,8 @@ io.sockets.on('connection', function(socket){
 		socket.emit('log', array);
 		socket.broadcast.emit('log',array);
 	}
-	
-		log('A web site connected to the server');
+
+	log('A web site connected to the server');
 	
 	socket.on('disconnect', function(socket){
 		log('A web site disconnected from the server');
