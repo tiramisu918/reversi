@@ -1,3 +1,7 @@
+/* Set up the static file server */
+
+
+
 var static = require ('node-static');
 
 var http = require ('http');
@@ -22,3 +26,24 @@ function(request,response){
 		}
 		).listen(port);
 console.log('The Server is running');
+
+/*  Set up the web sockeet server */
+
+var io = require ('socket.io').listen(app);
+io.sockets.on('connection', function(socket){
+	function log(){
+		var array = ['*** Server Log Message: '];
+		for(var i=0; i< arguments.length; i++){
+			array.push(arguments[i]);
+			console.log(arguments[i]);
+		}
+		socket.emit('log', array);
+		socket.broadcast.emit('log',array);
+	}
+	
+		log('A web site connected to the server');
+	
+	socket.on('disconnect', function(socket){
+		log('A web site disconnected from the server');
+	});
+});
