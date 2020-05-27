@@ -46,14 +46,14 @@ socket.on('join_room_response',function(payload){
 	
 	/*if we don't already have an entry for this person*/
 	if(dom_elements.length == 0){
-		var nodeA =$('<div></div>');
+		var nodeA = $('<div></div>');
 		nodeA.addClass('socket_'+payload.socket_id);
 		
-		var nodeB =$('<div></div>');
-		nodeA.addClass('socket_'+payload.socket_id);
+		var nodeB = $('<div></div>');
+		nodeB.addClass('socket_'+payload.socket_id);
 		
-		var nodeC =$('<div></div>');
-		nodeA.addClass('socket_'+payload.socket_id);
+		var nodeC = $('<div></div>');
+		nodeC.addClass('socket_'+payload.socket_id);
 		
 		nodeA.addClass('w-100');
 		
